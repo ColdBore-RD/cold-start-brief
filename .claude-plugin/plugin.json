@@ -1,0 +1,14 @@
+{
+  "name": "cold-start-brief",
+  "displayName": "Cold Start Brief",
+  "version": "0.1.0",
+  "description": "Write a copy-paste kickoff or handoff prompt for a specific model, with the current prompting guide fetched and the project scouting already done.",
+  "author": {
+    "name": "Cold Bore R&D",
+    "url": "https://github.com/ColdBore-RD"
+  },
+  "homepage": "https://github.com/ColdBore-RD/cold-start-brief",
+  "repository": "https://github.com/ColdBore-RD/cold-start-brief",
+  "license": "MIT",
+  "keywords": ["prompting", "handoff", "kickoff", "context", "scout", "skill"]
+}

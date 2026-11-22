@@ -1,0 +1,15 @@
+{
+  "name": "cold-start-brief",
+  "description": "Cold Start Brief: scouted, model-specific kickoff and handoff prompts, by Cold Bore R&D.",
+  "owner": {
+    "name": "Cold Bore R&D",
+    "url": "https://github.com/ColdBore-RD"
+  },
+  "plugins": [
+    {
+      "name": "cold-start-brief",
+      "source": "./",
+      "description": "Write a copy-paste kickoff or handoff prompt for a specific model, with the current prompting guide fetched and the project scouting already done."
+    }
+  ]
+}

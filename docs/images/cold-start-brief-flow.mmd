@@ -1,0 +1,23 @@
+---
+title: From request to a handoff that starts cold
+config:
+  theme: base
+  themeVariables:
+    background: "#ffffff"
+---
+flowchart LR
+  REQ["Your request<br/>model, task, variant"] --> FETCH
+  PROF[("Profile file<br/>(optional)")] -.-> FETCH
+  DOCS[("Official<br/>prompting guides")] --> FETCH["1. Fetch<br/>current guidance"]
+  FETCH --> SCOUT["2. Scout<br/>read-only"]
+  PROJ[("Project files<br/>and records")] --> SCOUT
+  SCOUT --> ASK["3. Ask<br/>real decisions only"]
+  ASK --> WRITE["4. Write<br/>facts, approvals,<br/>done criteria"]
+  WRITE --> SHIP["5. Deliver<br/>one Markdown file"]
+  SHIP --> NEW["A fresh session<br/>starts cold"]
+  classDef input fill:#e8f1fb,stroke:#5b8db8,color:#12263a
+  classDef step fill:#eef6ea,stroke:#6a9f58,color:#16301a
+  classDef out fill:#fdf3e1,stroke:#c99a3b,color:#3a2a0a
+  class REQ,PROF,DOCS,PROJ input
+  class FETCH,SCOUT,ASK,WRITE,SHIP step
+  class NEW out

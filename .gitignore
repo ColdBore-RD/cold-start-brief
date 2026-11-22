@@ -1,0 +1,23 @@
+# secrets
+.env
+.env.*
+!.env.example
+secrets.h
+*.age
+# a personal profile never belongs in this repo
+*-profile.md
+!skills/cold-start-brief/references/profile-example.md
+profile.local.md
+# output
+/KICKOFF_*.md
+/HANDOFF_*.md
+node_modules/
+__pycache__/
+*.pyc
+tmp/
+examples/sample-project/HANDOFF_*.md
+examples/sample-project/KICKOFF_*.md
+# local workspace notes (root only: the sample project ships its own STATUS.md)
+/CLAUDE.md
+/STATUS.md
+/DECISIONS.md
