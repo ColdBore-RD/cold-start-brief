@@ -157,6 +157,16 @@ git clone https://github.com/ColdBore-RD/cold-start-brief.git
 claude --plugin-dir ./cold-start-brief
 ```
 
+### Claude chat edition
+
+The same skill also runs in Claude chat (claude.ai). Chat has its own skill store, so the plugin install above does not reach it. The repo stays the single source: one script builds a chat zip from `skills/cold-start-brief`.
+
+```powershell
+powershell.exe -NoProfile -File scripts/pack-chat.ps1
+```
+
+This writes `dist/cold-start-brief-chat-v<version>.zip`. Upload it under Settings, Capabilities, Skills, and upload it again after each version bump. The chat copy differs from the plugin in two ways: it drops the Claude Code only argument hint, and it carries a note that chat cannot read your files, so you paste the project's instruction files and status notes instead of having them scouted.
+
 <!-- Running Tests -->
 ### Running Tests
 
