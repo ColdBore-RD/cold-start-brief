@@ -4,6 +4,9 @@ All notable changes to this project are listed here. The format follows [Keep a 
 
 ## [Unreleased]
 
+### Added
+- `scripts/pack-chat.ps1`, which builds a Claude chat (claude.ai) edition zip from the same skill source.
+
 ## [0.1.0] - 2026-11-22
 
 First public release.
