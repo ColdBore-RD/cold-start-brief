@@ -29,9 +29,11 @@ try {
     if ($rel -eq 'SKILL.md') {
       $text = [IO.File]::ReadAllText($f.FullName) -replace "\r\n", "`n"
       $text = $text -replace '(?m)^argument-hint:.*\n', ''
+      # claude.ai rejects angle brackets in the description (read as XML tags)
+      $text = [regex]::Replace($text, '(?m)^description:.*$', [Text.RegularExpressions.MatchEvaluator]{ param($m) $m.Value.Replace('<', '[').Replace('>', ']') })
       $text = $text -replace '(?m)^Request: \$ARGUMENTS$', "Request: the user's message in this chat."
       $text = $text -replace '(?m)^(# Cold Start Brief)\n', ("`$1`n" + $note.Replace("`r`n", "`n") + "`n")
-      if ($text -match 'ARGUMENTS|argument-hint' -or $text -notmatch 'Chat edition') { throw 'chat transform failed' }
+      if ($text -match 'ARGUMENTS|argument-hint' -or $text -notmatch 'Chat edition' -or ($text -split "`n" | Where-Object { $_ -like 'description:*' }) -match '<|>') { throw 'chat transform failed' }
       $bytes = (New-Object Text.UTF8Encoding($false)).GetBytes($text)
     } else { $bytes = [IO.File]::ReadAllBytes($f.FullName) }
     $e = $z.CreateEntry("cold-start-brief/$rel", [IO.Compression.CompressionLevel]::Optimal)
